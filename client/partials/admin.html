@@ -1,0 +1,59 @@
+<style type="text/css">
+/*.row {
+    margin: 15px;
+}*/
+
+html {
+    overflow: scroll;
+}
+
+.modal-backdrop {
+    position: relative;
+}
+</style>
+<div class="scroll">
+    <header>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"> Welcome {{ user }}!!</a>
+                </div>
+                <ul class="nav navbar-nav" style="float: right; width:15%">
+                    <li class="active"><a href="#">Dashboard</a></li>
+                    <li><a ng-controller="logoutController" ng-click='logout()' id="logoutbtn">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container" style=" margin-top: 50px; width: 65%">
+        <div class="row" ng-controller="adminCtrl" ng-repeat="comment in items  |  orderBy:'-created' | orderBy:'approved'">
+            <ul>
+                <li>
+                    <div class='comment' ng-class='{approved: comment.approved}'>
+                        <!-- <div class='comment'> -->
+                        <!-- <h4>{{ $scope.book }}</h4> -->
+                        <h5> {{comment.text}} </h5>
+                        <h5> {{comment.postedBy}} </h5>
+                        <p><small>
+                    <a ng-click='approve(comment)' ng-href="{{mailLink}}" target="_blank" ng-hide='comment.approved'>  approve comment  </a>
+                  <!-- <a id="send">send mail | </a>                 -->
+                  <!-- <a ng-click='drop(comment)' > delete comment </a>                 -->
+              </small> <span style="text-align:right;position: static;top:0px;margin-left: 450px;">{{comment.created}}</span></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 
+<script type=""> 
+$('#send').click(function() {
+
+    var mailto_link = 'mailto:' + email + '?subject=' + subject + '&body=' + body_message;
+
+    win = window.open(mailto_link, 'emailWindow');
+    if (win && win.open && !win.closed) win.close();
+
+});
+</script>
+ -->

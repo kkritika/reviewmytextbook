@@ -1,0 +1,54 @@
+
+<style>
+    .modal-backdrop {
+    position: relative;}
+</style>
+        <div class="container">
+        <div  style="text-align:right;margin-top:15px;margin-bottom:0;">
+                <a ng-controller="logoutController" ng-click='logout()' id="logoutbtn" class="btn btn-default">Logout</a>
+            </div>
+            <div class="row" style="width: 45%; float: left; margin: 4% 0 0 0; text-align: justify;">
+                <img ng-src= "{{ book.img.img_cover }}" style="width:65%;">
+                <!-- <img src="image.jpg" style="width:95%;"> -->
+            </div>
+            <div ng-app="myApp" class="row" style="width: 50%; margin: 6% 0% 0% 50%;">
+                
+                <h1>{{ book.title }}</h1>
+                <p class="para" style="margin:4% 0 3% 0"> <b> Description: </b> {{ book.description }} </p>
+                <div class='comments' ng-controller='CommentsCtrl'>
+                    <form > 
+                        <textarea ng-model='comments.text' id='comments.text' placeholder="Enter your reviews here..." style=" width:100%;height:180px;margin: 2% 0 2% 0px;padding: 3%; font-size: 120%; text-align:justify;"></textarea>
+                        <input class='btn btn-sucess' ng-click='submit()' type='submit' value='Submit' style="width:200px; margin: 2% 0 2% 0px;padding: 2%;">
+                    
+                    </form>
+                </div>
+
+
+
+                <!-- <div ng-app="myApp">
+                    <a href="" ng-click="showme=true">Review this Text book</a>
+                    <button ng-click="showme=false">Hide</button> 
+                    <h1>Book Title</h1>
+                    <div class="wrapper">
+                        <p ng-hide="showme"></p>
+                        <div ng-show="showme" class='comments' ng-controller='CommentsCtrl'>
+                            <form>
+                                <h3>Comment</h3>
+                                <div class="row">
+                                    <input ng-model='comments.postedBy' id='comments.postedBy' placeholder="Your Name" type='text' style="width:350px;height:50px;">
+                                </div>
+                                <div class="row">
+                                    <input ng-model='comments.email_id' id='comments.email_id' placeholder="Your Mail Id" type='text' style="width:350px;height:50px;">
+                                </div>
+                                <div class="row">
+                                    <textarea ng-model='comments.text' id='comments.text' placeholder="Your Comment" style="width:500px;height:100px;"></textarea>
+                                </div>
+                                <div class="row">
+                                    <input class='button' ng-click='submit()' type='submit' value='Submit' style="width:200px;">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
